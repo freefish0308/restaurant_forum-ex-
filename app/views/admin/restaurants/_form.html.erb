@@ -10,8 +10,11 @@
       </ul>
       <hr>
     <% end %>
-
+    
     <%= form_for [:admin, @restaurant] do |f| %>
+    
+    <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: "請選擇"}, {class: "form-control"} %>
+
 
       <div class="form-group">
         <%= f.label :name, "Name" %>
