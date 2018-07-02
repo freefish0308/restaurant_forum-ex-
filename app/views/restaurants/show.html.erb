@@ -21,6 +21,8 @@
 
       <hr>
       <%= link_to 'Dashboard', dashboard_restaurant_path(@restaurant), class: "btn btn-primary" %>
+      <%= link_to 'Favorite', favorite_restaurant_path(@restaurant), method: :post, class: "btn btn-primary" %>
+      <%= link_to 'Unfavorite', unfavorite_restaurant_path(@restaurant), method: :post, class: "btn btn-info" %>
     </div>
 
     <div class="clearfix"></div>
@@ -41,7 +43,7 @@
       <p class="text-muted">
         <em><%= time_ago_in_words(comment.created_at) %> </em>
         <% if current_user.admin? %>
-          <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>
+          <%= link_to "Delete", restaurant_comment_path(@restaurant, comment), method: :delete %>        
         <% end %>
       </p>
     </div>
