@@ -32,5 +32,9 @@ class User < ApplicationRecord
     self.role == "admin"
   end
 
+  def following?(user)
+    self.followings.include?(user)
+  end 
 
+          
 end
