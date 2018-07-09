@@ -32,11 +32,16 @@ class RestaurantsController < ApplicationController
   # POST /restaurants/:id/unfavorite
   def unfavorite
     @restaurant = Restaurant.find(params[:id])
-    
+
     favorites = Favorite.where(restaurant: @restaurant, user: current_user)
     favorites.destroy_all
     @restaurant.count_favorites
     redirect_back(fallback_location: root_path)
+  end
+
+  # GET /restaurants/ranking
+  def ranking
+   @restaurants = Restaurant.order(favorites_count: :desc).limit(10)
   end
 
   # POST /restaurants/:id/like
