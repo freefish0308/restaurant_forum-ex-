@@ -1,0 +1,2 @@
+class AddFavoritesCountToRestaurant < ApplicationRecord
+end
