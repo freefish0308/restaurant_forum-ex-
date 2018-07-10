@@ -39,9 +39,8 @@
           <h4><%= user.name %></h4>
         <% end %>
         <%= render partial: "shared/follow", locals: {user: user} %>
-
-        <%= link_to 'Friend', friendships_path(friend_id: user), method: :post %>
-        <%= link_to 'unFriend', friendship_path(user), method: :delete %>
+        <%= render partial: "shared/friend", locals: {user: user} %>
+        
 
       </div>
     <% end %>

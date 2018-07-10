@@ -44,7 +44,11 @@ class User < ApplicationRecord
 
   def following?(user)
     self.followings.include?(user)
-  end 
+  end
+
+  def friend?(user)
+    self.friends.include?(user)
+  end  
 
           
 end
